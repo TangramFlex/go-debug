@@ -27,8 +27,6 @@ var (
 
 	colors = []string{"red", "magenta", "blue", "green", "cyan", "yellow"}
 
-	max = 5
-
 	last = 0
 )
 
