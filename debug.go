@@ -19,7 +19,7 @@ import (
 
 var (
 	// Compile collection of regular expressions corresponding to Debug
-	debug_r []*regexp.Regexp
+	debugRegex []*regexp.Regexp
 
 	base = "\033[1;30m"
 
@@ -58,7 +58,7 @@ type (
 // should be output.
 func NewDebugger(key string) Debugger {
 	// Determine type of Debugger to deliver based on environment
-	for _, r := range debug_r {
+	for _, r := range debugRegex {
 		if r.String() != "" && r.MatchString(key) {
 
 			color := colors[last]
@@ -101,6 +101,6 @@ func init() {
 	debug := strings.Split(os.Getenv("DEBUG"), ",")
 	for _, val := range debug {
 		r, _ := regexp.Compile("^" + strings.Replace(val, "*", ".*?", -1) + "$")
-		debug_r = append(debug_r, r)
+		debugRegex = append(debugRegex, r)
 	}
 }
