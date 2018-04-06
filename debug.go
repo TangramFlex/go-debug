@@ -60,7 +60,7 @@ func NewDebugger(key string) Debugger {
 		if r.String() != "" && r.MatchString(key) {
 
 			color := colors[last]
-			last = (last + 1) % 5
+			last = (last + 1) % len(colors)
 
 			// Valid debug
 			return &validDebugger{key, time.Time{}, true, ansi.ColorFunc(color)}
