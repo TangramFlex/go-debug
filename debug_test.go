@@ -3,10 +3,11 @@ package debugger_test
 import (
 	"testing"
 	"time"
+
 	"github.com/swhite24/go-debug"
 )
 
-func TestValidDebug (t *testing.T) {
+func TestValidDebug(t *testing.T) {
 	var d = debugger.NewDebugger("hello")
 	var d2 = debugger.NewDebugger("world")
 	d.Log("hello", 123)
@@ -22,7 +23,7 @@ func TestValidDebug (t *testing.T) {
 	d.Log("hello3", 123)
 }
 
-func TestInvalidDebug (t *testing.T) {
+func TestInvalidDebug(t *testing.T) {
 	var d = debugger.NewDebugger("notset")
 	d.Log("hello")
 }
